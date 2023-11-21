@@ -8,6 +8,11 @@ body {
     background-image: url("./flappybirdbg.png");
 }
 
+#spacebarBtn {
+  width: 250px;
+  height: 30px;
+}
+
 .modal {
     display: flex;
     justify-content: center;
