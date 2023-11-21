@@ -45,12 +45,29 @@ let modal;
 let selectedCharacter;
 
 let hbd;
+
+let spacebarBtn;
 window.onload = function() {
 
     passwordSubmit = document.getElementById('passwordSubmit');
     cars = document.getElementById('cars');
     modal = document.getElementById('myModal');
     hbd = document.getElementById('hbd');
+    spacebarBtn = document.getElementById('spacebarBtn');
+
+    spacebarBtn.addEventListener('click', () => {
+        
+        velocityY = -6;
+
+        //reset game
+        if (gameOver) {
+            bird.y = birdY;
+            pipeArray = [];
+            score = 0;
+            gameOver = false;
+        }
+        
+    });
 
     passwordSubmit.addEventListener('click', () => {
         
