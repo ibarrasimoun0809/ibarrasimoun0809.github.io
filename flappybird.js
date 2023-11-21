@@ -34,7 +34,7 @@ let bottomPipeImg;
 //physics
 let velocityX = -2; //pipes moving left speed
 let velocityY = 0; //bird jump speed
-let gravity = 0.4;
+let gravity = 0.3;
 
 let gameOver = false;
 let score = 0;
@@ -57,7 +57,7 @@ window.onload = function() {
 
     spacebarBtn.addEventListener('click', () => {
         
-        velocityY = -6;
+        velocityY = -5;
 
         //reset game
         if (gameOver) {
@@ -115,6 +115,7 @@ window.onload = function() {
     requestAnimationFrame(update);
     setInterval(placePipes, 1500); //every 1.5 seconds
     document.addEventListener("keydown", moveBird);
+    
 }
 
 function update() {
@@ -176,6 +177,8 @@ function update() {
     }
 }
 
+//let rand = 0;
+
 function placePipes() {
     if (gameOver) {
         return;
@@ -184,8 +187,9 @@ function placePipes() {
     //(0-1) * pipeHeight/2.
     // 0 -> -128 (pipeHeight/4)
     // 1 -> -128 - 256 (pipeHeight/4 - pipeHeight/2) = -3/4 pipeHeight
+    //rand = rand + 0.1;
     let randomPipeY = pipeY - pipeHeight/4 - Math.random()*(pipeHeight/2);
-    let openingSpace = board.height/4;
+    let openingSpace = board.height/2;
 
     let topPipe = {
         img : topPipeImg,
@@ -211,7 +215,7 @@ function placePipes() {
 function moveBird(e) {
     if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX") {
         //jump
-        velocityY = -6;
+        velocityY = -5;
 
         //reset game
         if (gameOver) {
